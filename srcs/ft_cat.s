@@ -31,9 +31,6 @@ read:
 	jmp		write
 
 write:
-	lea		rdi,		[buff]
-	call	_ft_strlen
-
 	mov		rdx,		rax				;length (arg 3)
 	lea		rsi,		[buff]			;buffer (arg 2)
 	mov		rdi,		STDOUT			;std output (arg 1)
@@ -43,7 +40,7 @@ write:
 	jc		ret_over
 
 	lea		rdi,		[buff]
-	mov		rsi,		42
+	mov		rsi,		BUFFER_SIZE
 	call	_ft_bzero
 
 	jmp		read

@@ -6,7 +6,13 @@ _ft_strcat:
 	mov		rax,			rdi			;backup ptr
 	cmp		rsi,			0
 	je		ret_over					;check eof
-	jmp		while
+	jmp		start
+
+start:
+	cmp		qword [rdi],	0
+	je		while
+	inc		rdi
+	jmp		start
 
 while:
 	cmp		qword [rsi],	0
